@@ -1,0 +1,22 @@
+spring:
+  profiles:
+    active: local # 기본 환경 선택 - 어플리케이션 실행시 파라미터로 넘어온게 없으면 active 값을 보게 됨
+
+
+# --- 위로는 공통 영역, 하단이 profile 설정 영역
+# 공통 영역의 값은 각 profile 환경에 동일한 설정이 있으면 무시되고, 없으면 공통 영역의 설정 값이 사용됨
+# 그래서 datasource, table 등과 같은 옵션들은 공통영역에 두지 않고 각 profile마다 별도로 두는 것을 추천
+
+# local 환경
+---
+spring:
+  profiles: local
+  datasource:
+    data: classpath:data-h2.sql # 시작할때 실행시킬 script
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true

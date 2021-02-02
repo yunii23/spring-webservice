@@ -1,25 +1,25 @@
 package com.start.webservice.domain.posts;
 
+import com.start.webservice.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED) // 기본 생성자 자동 추가, 괄호내용은 기본 생성자 접근 제한을 프로텍티드로 한다
                                                     // 엔티티 클래스를 프로젝트 코드상에서 기본 생성자로 생성하는 것은 막되, jap에서 엔티티 클래스를 생성하는 것은 허용하기 위해 추가
 @Getter //클래스 내 모든 필드의 getter 메소드를 자동 생성
 @Entity //테이블과 링크 될 클래스임
-public class Posts {
+public class Posts extends BaseTimeEntity {
     // 포스트 클래스는 실제 db의 테이블과 매칭될 클래스. 엔티티 클래스임
     // JAP를 사용하기 때문에 db 데이터에 작업할 경우 실제 쿼리를 날리기 보다는 엔티티 클래스의 수정을 통해 작업
 
     @Id //해당 테이블의 pk 필드, 웬만하면 Long 타입의 ai 추천, mysql은 bigint
-    @GeneratedValue //pk 생성 규칙, ai임
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //pk 생성 규칙, ai임
     private Long id;
 
     @Column(length = 500, nullable = false) // 굳이 작성하지 않아도 다 컬럼인데, 작성하는 경우는 수정하고 싶을 때(기본값 문자열 255)
