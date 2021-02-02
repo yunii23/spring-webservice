@@ -9,10 +9,10 @@ import java.util.Optional;
 
 @Getter
 public class PostsMainResponseDto {
-    private final Long id;
-    private final String title;
-    private final String author;
-    private final String modifiedDate;
+    private Long id;
+    private String title;
+    private String author;
+    private String modifiedDate;
 
     public PostsMainResponseDto(Posts entity) {
         id = entity.getId();

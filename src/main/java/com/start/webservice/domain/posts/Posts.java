@@ -30,10 +30,6 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
-    public static void main(String[] args) {
-
-    }
-
     @Builder //해당 클래스의 빌더패턴 클래스를 생성, 생성자 상단에 선언시 생성자에 포함된 필드만 빌더에 포함함
             // 생성자 대신 빌더 클래스 아용함
     public Posts(String  title, String content, String author) {

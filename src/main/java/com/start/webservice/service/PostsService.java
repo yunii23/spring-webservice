@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class PostsService {
     // 서비스 메소드는 entity를 바로 받지 않고, save용 dto인 postssaverequestdto를 받아서 저장함
     // 비즈니스 로직, 트랜잭션 관리는 모두 서비스에서 관리, 뷰와 연동되는 부분은 컨트롤러에서 담당하도록 구성 위함
-    private final PostsRepository postsRepository;
+    private PostsRepository postsRepository;
 
     @Transactional
     public Long save(PostsSaveRequestDto dto) {

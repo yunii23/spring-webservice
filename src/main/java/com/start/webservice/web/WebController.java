@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @AllArgsConstructor
 public class WebController {
 
-    private final PostsService postsService;
+    private PostsService postsService;
 
     @GetMapping("/")
     public String main(Model model) {
